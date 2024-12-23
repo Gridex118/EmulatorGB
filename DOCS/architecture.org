@@ -1,0 +1,25 @@
+#+Author: Alex Rosegrid
+#+Title: Game Boy/Color Architecture
+#+Startup: show2levels indent
+#+OPTIONS: toc:2
+
+* References
++ [[Copetti][https://www.copetti.org/writings/consoles/game-boy/]]
+
+* CPU
+The Game Boy used a custom CPU, the DMG-CPU (CPU-CGB, for the Color) by Sharp.
++ Used the Sharp SM83 as it's main processing unit.
++ Clocked at ~4.19MHz, originally; and upgraded to ~8.38MHz in the Game Boy Color.
++ Memory mapped I/O
++ 7 general purpose registers
++ For compatibility reasons, CPU-CGB had two modes:
+  - Normal mode, at 4.19MHz
+  - Dual speed mode, at 8.38 MHz
++ 8 bit data bus
++ 16 bit address bus: can address upto 64 KB of memory. The memory map was split at:
+  - Cartridge's ROM
+  - Work RAM    :: 8KiB(32KiB for the Color) WRAM, general purpose
+  - High RAM    :: additional 127B HRAM, accessed via the =LDH= instruction
+  - Display RAM :: 8KiB of VRAM, for graphics
+  - I/O mapping
+  - Interrupt controls
