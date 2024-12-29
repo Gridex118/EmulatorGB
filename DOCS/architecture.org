@@ -6,6 +6,7 @@
 * References
 + [[Copetti][https://www.copetti.org/writings/consoles/game-boy/]]
 
+
 * CPU
 The Game Boy used a custom CPU, the DMG-CPU (CPU-CGB, for the Color) by Sharp.
 + Used the Sharp SM83 as it's main processing unit.
@@ -23,3 +24,25 @@ The Game Boy used a custom CPU, the DMG-CPU (CPU-CGB, for the Color) by Sharp.
   - Display RAM :: 8KiB of VRAM, for graphics
   - I/O mapping
   - Interrupt controls
+
+
+* Graphics
++ Calculations done by the CPU, and then rendered by the Picture Processing Unit(PPU).
++ 160x144 px screen resolution.
++ 4 shades of gray (white, light grey, dark grey and black); with a greenish tint.
++ The PPU is connected to 8KiB of VRAM. Some of the rendering data is stored directly in the PPU.
+
+** Tiles
++ 8x8 bitmaps stored in the /Tile Set(Tile Pattern Table)/ of the VRAM.
++ Each pixel corresponds to one of four shades of grey.
++ Two /Tile Map/ provides the information about rendering location.
+
+** Layering
+Both layers can be used concurrently.
+*** Background
++ 256x256 px (32x32 tiles) map.
++ The game gets to decide which part is selected for display.
++ The selected area can be changed during gameplay.
+*** Window
++ 160x144 px map.
++ Contains HUD related tile data, like player stats.
